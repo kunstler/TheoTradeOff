@@ -1,0 +1,16 @@
+Package: TheoTradeOff
+Title: Cellular automaton models based on competitive ability vs. stress
+    tolerance tradeoffs.
+Version: 0.1
+Date: 2016-11-02
+Author: Georges Kunstler
+Maintainer: Georges Kunstler <georges.kunstler@gmail.com>
+Description: Functions to run cellular automaton to simulate community
+    assembly undera three ways tradeoffs between competive ability in early or late
+    successionale stage and abiotic stress tolerance
+License: GPL (>=2)
+Imports:
+    Rcpp,
+    reldist
+LinkingTo: Rcpp
+RoxygenNote: 5.0.1
