@@ -82,7 +82,7 @@ if(nrow(df.sp) > nsp) df.sp <- df.sp[sample(1:nrow(df.sp), nsp), ]
 ##' @return plot
 ##' @export
 ##' @author Georges KUnstler
-TernPlotSp <- function(Nval = 1000){
+TernPlotSp <- function(Nval = 1000, add_text = FALSE){
    require(raster)
    E <- matrix(rep(0:Nval, Nval + 1), Nval +1, Nval+1)/Nval
    L <- matrix(rep(0:Nval, Nval + 1), Nval + 1, Nval +1, byrow= TRUE)/Nval
@@ -97,13 +97,15 @@ TernPlotSp <- function(Nval = 1000){
    L.b <- L.r[rev(0:(Nval + 1)), ]
    S.b <- S.r[rev(0:(Nval + 1)), ]
 
- trade.array <- stack(flip(raster(E.b), 2),
-                      flip(raster(L.b), 2),
-                      flip(raster(1 - S.b), 2))
-plotRGB(trade.array,scale=1,axes=FALSE)
-## text(0.15,0.1,labels="Stress tolerant", cex = 1.5)
-## text(0.85,0.1,labels="Comp late succ", cex = 1.5)
-## text(0.15,0.9,labels="Comp early succ", cex = 1.5)
+   trade.array <- stack(flip(raster(E.b), 2),
+                        flip(raster(L.b), 2),
+                        flip(raster(1 - S.b), 2))
+  plotRGB(trade.array,scale=1,axes=FALSE)
+  if(add_text){
+     text(0.15,0.1,labels="Stress tolerant", cex = 1.5)
+     text(0.85,0.1,labels="Comp late succ", cex = 1.5)
+     text(0.15,0.9,labels="Comp early succ", cex = 1.5)
+  }
 }
 
 ##' .. Fill the matrix with species parameters ..

@@ -4,7 +4,7 @@
 \alias{TernPlotSp}
 \title{TernPlotSp}
 \usage{
-TernPlotSp(Nval = 1000)
+TernPlotSp(Nval = 1000, add_text = FALSE)
 }
 \arguments{
 \item{Nval}{number of species used to generate the plot.}
